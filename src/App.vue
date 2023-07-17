@@ -1,26 +1,55 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <nav>
+      <router-link to="/" class="nav-link">Home</router-link>
+      <router-link to="/about" class="nav-link">About</router-link>
+      <router-link to="/contact" class="nav-link">Contact</router-link>
+    </nav>
+    <transition name="fade" mode="out-in">
+      <router-view></router-view>
+    </transition>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+nav {
+  margin-bottom: 20px;
+}
+
+.nav-link {
+  margin-right: 10px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #333;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+  background-color: #555;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
